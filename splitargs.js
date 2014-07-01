@@ -19,19 +19,11 @@
             if (element === "'") {
                 if (!doubleQuoteOpen) {
                     singleQuoteOpen = !singleQuoteOpen;
-//                    if (!singleQuoteOpen) {
-//                        ret.push(tokenBuffer.join(''));
-//                        tokenBuffer = [];
-//                    }
                     continue;
                 }
             } else if (element === '"') {
                 if (!singleQuoteOpen) {
                     doubleQuoteOpen = !doubleQuoteOpen;
-//                    if (!doubleQuoteOpen) {
-//                        ret.push(tokenBuffer.join(''));
-//                        tokenBuffer = [];
-//                    }
                     continue;
                 }
             }

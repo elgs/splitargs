@@ -2,57 +2,58 @@ splitargs
 ==========
 Splits strings into tokens by given separator except treating quoted part as a single token.
 
-This project is still under construction. Here are some test code:
 ```javascript
-(function () {
-    "use strict";
+var splitargs = require('splitargs');
 
-    var splitargs = require('./splitargs.js');
+var i1 = "I said 'I am sorry.', and he said \"it doesn't matter.\"";
+var o1 = splitargs(i1);
+console.log(o1);
+/*
+[ 'I',
+  'said',
+  'I am sorry.,',
+  'and',
+  'he',
+  'said',
+  'it doesn\'t matter.' ]
+*/
 
-    describe('splitargs Suite', function () {
-        beforeEach(function () {
-        });
-        afterEach(function () {
-        });
+var i2 = "I said \"I am sorry.\", and he said \"it doesn't matter.\"";
+var o2 = splitargs(i2);
+console.log(o2);
+/*
+[ 'I',
+  'said',
+  'I am sorry.,',
+  'and',
+  'he',
+  'said',
+  'it doesn\'t matter.' ]
+*/
 
-        it('should split double quoted string', function () {
-            var i = "I said 'I'm sorry.', and he said 'it doesn't matter.'";
-            var o = splitargs(i);
-            expect(o.length).toBe(7);
-            expect(o[0]).toBe("I");
-            expect(o[1]).toBe("said");
-            expect(o[2]).toBe("I'm sorry.,");
-            expect(o[3]).toBe("and");
-            expect(o[4]).toBe("he");
-            expect(o[5]).toBe("said");
-            expect(o[6]).toBe("it doesn't matter.");
-        });
+var i3 = 'I said "I am sorry.", and he said "it doesn\'t matter."';
+var o3 = splitargs(i3);
+console.log(o3);
+/*
+[ 'I',
+  'said',
+  'I am sorry.,',
+  'and',
+  'he',
+  'said',
+  'it doesn\'t matter.' ]
+*/
 
-        it('should split pure double quoted string', function () {
-            var i = "I said \"I'm sorry.\", and he said \"it doesn't matter.\"";
-            var o = splitargs(i);
-            expect(o.length).toBe(7);
-            expect(o[0]).toBe("I");
-            expect(o[1]).toBe("said");
-            expect(o[2]).toBe("I'm sorry.,");
-            expect(o[3]).toBe("and");
-            expect(o[4]).toBe("he");
-            expect(o[5]).toBe("said");
-            expect(o[6]).toBe("it doesn't matter.");
-        });
-
-        it('should split single quoted string', function () {
-            var i = 'I said "I\'m sorry.", and he said "it doesn\'t matter."';
-            var o = splitargs(i);
-            expect(o.length).toBe(7);
-            expect(o[0]).toBe("I");
-            expect(o[1]).toBe("said");
-            expect(o[2]).toBe("I'm sorry.,");
-            expect(o[3]).toBe("and");
-            expect(o[4]).toBe("he");
-            expect(o[5]).toBe("said");
-            expect(o[6]).toBe("it doesn't matter.");
-        });
-    });
-})();
+var i4 = 'I said \'I am sorry.\', and he said "it doesn\'t matter."';
+var o4 = splitargs(i4);
+console.log(o4);
+/*
+[ 'I',
+  'said',
+  'I am sorry.,',
+  'and',
+  'he',
+  'said',
+  'it doesn\'t matter.' ]
+*/
 ```

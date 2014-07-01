@@ -2,6 +2,10 @@ splitargs
 ==========
 Splits strings into tokens by given separator except treating quoted part as a single token.
 
+#Installation
+`npm install splitargs`
+
+#Usage
 ```javascript
 var splitargs = require('splitargs');
 

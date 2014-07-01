@@ -1,7 +1,7 @@
 {
     "name": "splitargs",
     "version": "0.0.1",
-    "description": "Splits strings into tokens by given separater except treating quoted part as a single token.",
+    "description": "Splits strings into tokens by given separator except treating quoted part as a single token.",
     "main": "splitargs.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"

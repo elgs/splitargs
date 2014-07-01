@@ -5,7 +5,16 @@
 (function () {
     "use strict";
 
-    module.exports = function (input) {
+    module.exports = function (input, separator) {
 
+        var config = {
+            singleQuoteOpen: false,
+            doubleQuoteOpen: false,
+            separator: separator || /\s+/g
+        };
+
+        input.split('').map(function (element) {
+
+        }, config);
     };
 })();

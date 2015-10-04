@@ -1,6 +1,6 @@
 {
     "name": "splitargs",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Splits strings into tokens by given separator except treating quoted part as a single token.",
     "main": "splitargs.js",
     "scripts": {

@@ -34,6 +34,8 @@
                 if (tokenBuffer && tokenBuffer.length > 0) {
                     ret.push(tokenBuffer.join(''));
                     tokenBuffer = [];
+                } else {
+                    ret.push('');
                 }
             } else {
                 tokenBuffer.push(element);
@@ -41,6 +43,8 @@
         }
         if (tokenBuffer && tokenBuffer.length > 0) {
             ret.push(tokenBuffer.join(''));
+        } else {
+            ret.push('');
         }
         return ret;
     };

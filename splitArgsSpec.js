@@ -64,5 +64,11 @@
             expect(o[5]).toBe("said");
             expect(o[6]).toBe("it doesn't matter.");
         });
+
+        it('should split to 4 empty strings', function () {
+            var i = ',,,';
+            var o = splitargs(i, ',', true);
+            expect(o.length).toBe(4);
+        })
     });
 })();

@@ -5,8 +5,8 @@
 (function () {
     "use strict";
 
-    module.exports = function (input, separator, keepQuotes) {
-        separator = separator || /\s/g;
+    module.exports = function (input, sep, keepQuotes) {
+        var separator = sep || /\s/g;
         var singleQuoteOpen = false;
         var doubleQuoteOpen = false;
         var tokenBuffer = [];
@@ -31,12 +31,13 @@
             }
 
             if (!singleQuoteOpen && !doubleQuoteOpen && matches) {
-                if (tokenBuffer && tokenBuffer.length > 0) {
+                if (tokenBuffer.length > 0) {
                     ret.push(tokenBuffer.join(''));
                     tokenBuffer = [];
-                } else {
+                } else if (!!sep) {
                     ret.push('');
                 }
+
             } else {
                 tokenBuffer.push(element);
             }

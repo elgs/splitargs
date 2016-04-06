@@ -14,9 +14,9 @@
         });
 
         it('should split double quoted string', function () {
-            var i = "I  said 'I am sorry.', and he said \"it doesn't matter.\"";
+            var i = " I  said 'I am sorry.', and he said \"it doesn't matter.\" ";
             var o = splitargs(i);
-            expect(o.length).toBe(7);
+            expect(7).toBe(o.length);
             expect(o[0]).toBe("I");
             expect(o[1]).toBe("said");
             expect(o[2]).toBe("I am sorry.,");

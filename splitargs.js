@@ -35,16 +35,15 @@
                     ret.push(tokenBuffer.join(''));
                     tokenBuffer = [];
                 } else if (!!sep) {
-                    ret.push('');
+                    ret.push(element);
                 }
-
             } else {
                 tokenBuffer.push(element);
             }
         }
-        if (tokenBuffer && tokenBuffer.length > 0) {
+        if (tokenBuffer.length > 0) {
             ret.push(tokenBuffer.join(''));
-        } else {
+        } else if (!!sep) {
             ret.push('');
         }
         return ret;

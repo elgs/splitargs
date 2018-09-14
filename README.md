@@ -1,11 +1,13 @@
-splitargs
-==========
+# splitargs
+
 Splits strings into tokens by given separator except treating quoted part as a single token.
 
-#Installation
+## Installation
+
 `npm install splitargs`
 
-#Usage
+## Usage
+
 ```javascript
 var splitargs = require('splitargs');
 

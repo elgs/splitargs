@@ -70,5 +70,20 @@
             var o = splitargs(i, ',', true);
             expect(o.length).toBe(4);
         })
+
+        it('should allow space if escaped', function () {
+            var i = 'I\\ said\\ it\\ matters';
+            var o = splitargs(i, ' ', true);
+            expect(o.length).toBe(1);
+        })
+
+        it('should allow same quote inside quote if escaped', function () {
+            var i = 'What\\\'s the matter?';
+            var o = splitargs(i, ' ', true);
+            expect(o.length).toBe(3);
+            expect(o[0]).toBe("What's");
+            expect(o[1]).toBe("the");
+            expect(o[2]).toBe("matter?");
+        })
     });
 })();

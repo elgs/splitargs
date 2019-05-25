@@ -9,12 +9,22 @@
         var separator = sep || /\s/g;
         var singleQuoteOpen = false;
         var doubleQuoteOpen = false;
+        var inEscape = false;
         var tokenBuffer = [];
         var ret = [];
 
         var arr = input.split('');
         for (var i = 0; i < arr.length; ++i) {
             var element = arr[i];
+            if (inEscape){
+                tokenBuffer.push(element)
+                inEscape = false
+                continue
+            }
+            else if (element === '\\'){
+                inEscape = true
+                continue
+            }
             var matches = element.match(separator);
             if (element === "'" && !doubleQuoteOpen) {
                 if (keepQuotes === true) {

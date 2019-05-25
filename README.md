@@ -60,4 +60,22 @@ console.log(o4);
   'said',
   'it doesn\'t matter.' ]
 */
+
+var i5 = 'I\\ said\\ it\\ matters.';
+var o5 = splitargs(i5);
+console.log(o5);
+/*
+[ 'I said it matters.' ]
+*/
+
+var i6 = 'What\\\'s the matter?';
+var o6 = splitargs(i6);
+console.log(o6);
+/*
+[ 'What\'s', 
+  'the', 
+  'matter?'
+]
+*/
+
 ```
